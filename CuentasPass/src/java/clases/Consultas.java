@@ -66,7 +66,8 @@ public class Consultas {
                 c.setId_cuentas(rs.getString(1));
                 c.setNombre(rs.getString(2));
                 c.setUsuario(rs.getString(3));
-                c.setPass(rs.getString(4));
+                 c.setPass(rs.getString(4));
+                c.setArreglo(rs.getString(5));
 
             }
 

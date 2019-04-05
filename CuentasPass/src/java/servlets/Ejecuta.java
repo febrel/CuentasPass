@@ -65,6 +65,7 @@ public class Ejecuta extends HttpServlet {
                     break;
 
                 case "Editar":
+
                     String ide = request.getParameter("id");
 
                     Cuentas cu = objConsul.listarId(ide);
@@ -78,7 +79,7 @@ public class Ejecuta extends HttpServlet {
                 case "Actualizar":
 
                     // Variables utitlizadas
-                    int id2 = Integer.parseInt(request.getParameter("txtId"));
+                    int id2 = Integer.parseInt(request.getParameter("txtId")); //Recupero id cliente
                     String nombre2 = request.getParameter("txtNombre");
                     String usuario2 = request.getParameter("txtUsuario");
                     String contraseña2 = request.getParameter("txtPass");
@@ -102,12 +103,28 @@ public class Ejecuta extends HttpServlet {
                     break;
 
                 case "Eliminar":
+                    // Capturo el id 
                     int ide2 = Integer.parseInt(request.getParameter("id"));
 
                     objConsul.eliminarCuenta(ide2);
                     request.getRequestDispatcher("cuentas.jsp").forward(request, response);
 
                     break;
+
+                case "Ver":
+
+                    String ide3 = request.getParameter("id");
+
+                    //Enviamos objeto cuentas request
+                     Cuentas cu2 = objConsul.listarId(ide3);
+
+                    //Enviamos objeto cuentas request
+                    request.setAttribute("cuentas", cu2);
+
+                   request.getRequestDispatcher("mostrar.jsp").forward(request, response);
+
+                    break;
+
                 default:
 
                     break;

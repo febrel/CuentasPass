@@ -6,6 +6,9 @@ package clases;
  */
 public class Cuentas {
 
+    // LLamo al algoritmo
+    Algoritmo objAl = new Algoritmo();
+
     private String id_cuentas;
     private String nombre;
     private String usuario;
@@ -46,8 +49,16 @@ public class Cuentas {
         this.pass = pass;
     }
 
+    // Retorna la contraseña Desencriptada
     public String getArreglo() {
-        return arreglo;
+
+        // Creamos un arreglo para almacenar la cadena
+        int arregloC[] = objAl.ConvCadenaArreglo(this.arreglo);
+
+        // Desencriptamos y retornamos el valor
+        String contraseñaDese = objAl.desencriptar(arregloC);
+
+        return contraseñaDese;
     }
 
     public void setArreglo(String arreglo) {

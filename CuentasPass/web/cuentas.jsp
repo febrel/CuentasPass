@@ -58,8 +58,6 @@
         <div class="container mt-1  "> 
             <div class="card text-light bg-dark">
 
-
-
                 <div class="padding  p-3"> 
                     <form action="Ejecuta"  method="post" >
 
@@ -81,7 +79,7 @@
                                     <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Usuario</th>
-                                    <th>Contraseña</th>
+                                    <th>Contraseña Temporal</th>
                                     <th>Acciones</th>
 
                                 </tr>
@@ -119,6 +117,7 @@
                                             <input class="btn btn-warning" type="submit" name ="realiza" value="Editar">
                                             <input class="btn btn-danger" type="submit" name ="realiza"  value="Eliminar">
                                             <input class="btn text-dark" type="submit" name ="realiza"  value="Ver">
+                                            
                                         </form>
                                     </td>
                                 </tr>
@@ -134,17 +133,10 @@
                 </div>
             </div>
 
-
-
-
-
             <div class="container padding mt-2">
                 <a class="btn  btn-danger float-left" href="index.jsp?cerrar=true">Cerrar</a>
                 <a class="btn btn-primary float-right">Exportar</a>
             </div>
-
-
-
 
     </body>
 </html>
