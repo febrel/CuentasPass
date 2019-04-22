@@ -49,24 +49,23 @@
                     <div>
                         <form method="post" action="Ejecuta">
 
-                            <img src="img/carnet2.png" />
-                            <input type="text" name="txtCli" placeholder="Id" value="${cliente}"readonly="readonly"> <br>
-                            <br>
+                            <div class="padding p-3">
+                                <label for="exampleInputEmail1" class="float-left">Id</label>
+                                <input class="form-control" type="text" name="txtCli" placeholder="Id" value="${cliente}"readonly="readonly"> <br>
+                        
+                                <label for="exampleInputEmail1" class="float-left">Cuenta</label>
+                                <input class="form-control" type="text" name="txtNombre" placeholder="Nombre"> <br>
+                          
 
-                            <img src="img/usuario2.png" />
-                            <input type="text" name="txtNombre" placeholder="Nombre"> <br>
-                            <br>
-
-                            <img src="img/email2.png" />
-                            <input type="text" name="txtUsuario" placeholder="Usuario" > <br>
-                            <br>
-
-                            <img src="img/clave2.png" />
-                            <input type="text" name="txtPass" placeholder="Contraseña"> <br>
-                            <br>
-
-                            <input class="btn btn-primary" type="submit"  name="realiza" value="Guardar"> <br>
-                            <br>
+                                <label for="exampleInputEmail1" class="float-left">Usuario - Correo</label>
+                                <input class="form-control" type="text" name="txtUsuario" placeholder="Usuario - Correo" > <br>
+                         
+                                <label for="exampleInputEmail1" class="float-left">Contraseña</label>
+                                <input class="form-control" type="text" name="txtPass" placeholder="Contraseña"> <br>
+                        
+                                <input class="btn btn-primary" type="submit"  name="realiza" value="Guardar"> <br>                         
+                            
+                            </div>
                         </form>
                     </div>
                 </div>
