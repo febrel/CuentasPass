@@ -53,16 +53,16 @@
                         
                         <div class="padding p-3">
                             <label for="exampleInputEmail1" class="float-left">Id</label>
-                            <input class="form-control "  type="text" name="txtId" placeholder="Id" value="${cuentas.getId_cuentas()}" readonly="readonly"> <br>
+                            <input class="form-control "  type="text" name="txtId" placeholder="Id" autocomplete="off" value="${cuentas.getId_cuentas()}" readonly="readonly"> <br>
                        
                             <label for="exampleInputEmail1" class="float-left">Cuenta</label>
-                            <input class="form-control" type="text" name="txtNombre" placeholder="Nombre" value="${cuentas.getNombre()}"> <br>
+                            <input class="form-control" type="text" name="txtNombre" placeholder="Nombre" autocomplete="off" value="${cuentas.getNombre()}"> <br>
                     
                             <label for="exampleInputEmail1" class="float-left">Usuario - Correo</label>
-                            <input class="form-control" type="text" name="txtUsuario" placeholder="Usuario" value="${cuentas.getUsuario()}"> <br>
+                            <input class="form-control" type="text" name="txtUsuario" placeholder="Usuario" autocomplete="off" value="${cuentas.getUsuario()}"> <br>
                          
                             <label for="exampleInputEmail1" class="float-left">Contraseña</label>
-                            <input class="form-control" type="text" name="txtPass" placeholder="Contraseña" value="${cuentas.getPass()}"> <br>
+                            <input class="form-control" type="text" name="txtPass" placeholder="Contraseña" autocomplete="off" value="${cuentas.getPass()}"> <br>
                             
                             <input   class="btn btn-primary" type="submit"  name="realiza" value="Actualizar">  <br>
                         </div>

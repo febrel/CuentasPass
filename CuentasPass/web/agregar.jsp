@@ -51,17 +51,17 @@
 
                             <div class="padding p-3">
                                 <label for="exampleInputEmail1" class="float-left">Id</label>
-                                <input class="form-control" type="text" name="txtCli" placeholder="Id" value="${cliente}"readonly="readonly"> <br>
+                                <input class="form-control" type="text" name="txtCli" placeholder="Id" value="${cliente}"readonly="readonly" autocomplete="off"> <br>
                         
                                 <label for="exampleInputEmail1" class="float-left">Cuenta</label>
-                                <input class="form-control" type="text" name="txtNombre" placeholder="Nombre"> <br>
+                                <input class="form-control" type="text" name="txtNombre" placeholder="Nombre" autocomplete="off"> <br>
                           
 
                                 <label for="exampleInputEmail1" class="float-left">Usuario - Correo</label>
-                                <input class="form-control" type="text" name="txtUsuario" placeholder="Usuario - Correo" > <br>
+                                <input class="form-control" type="text" name="txtUsuario" placeholder="Usuario - Correo" autocomplete="off" > <br>
                          
                                 <label for="exampleInputEmail1" class="float-left">Contraseña</label>
-                                <input class="form-control" type="text" name="txtPass" placeholder="Contraseña"> <br>
+                                <input class="form-control" type="text" name="txtPass" placeholder="Contraseña" autocomplete="off"> <br>
                         
                                 <input class="btn btn-primary" type="submit"  name="realiza" value="Guardar"> <br>                         
                             
