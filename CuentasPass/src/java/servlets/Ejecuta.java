@@ -39,7 +39,7 @@ public class Ejecuta extends HttpServlet {
                     break;
                 case "Guardar":
 
-                    // Variablesutitlizadas
+                    // Variables utitlizadas
                     String nombre = request.getParameter("txtNombre");
                     String usuario = request.getParameter("txtUsuario");
                     String contraseña = request.getParameter("txtPass");
@@ -96,8 +96,22 @@ public class Ejecuta extends HttpServlet {
                     // Convierto el Arreglo para subirlo
                     String subirArreglo2 = objAl.ConvArregloCadena(contenedorRelle2);
 
-                    // Envia el sql
-                    objConsul.modificarCuentas(nombre2, usuario2, pass2, subirArreglo2, id2);
+                    String retornoPass = objConsul.retornaPass(id2);
+                    
+
+                    //Condicional para actualizar
+                    if (retornoPass.equals(contraseña2)) {
+
+                        // Envia el sql
+                        objConsul.modificarCuentas(nombre2, usuario2, id2);
+
+                    } else {
+
+                        // Envia el sql
+                        objConsul.modificarCuentasCompleto(nombre2, usuario2, pass2, subirArreglo2, id2);
+
+                    }
+
                     response.sendRedirect("cuentas.jsp");
 
                     break;
@@ -116,12 +130,12 @@ public class Ejecuta extends HttpServlet {
                     String ide3 = request.getParameter("id");
 
                     //Enviamos objeto cuentas request
-                     Cuentas cu2 = objConsul.listarId(ide3);
+                    Cuentas cu2 = objConsul.listarId(ide3);
 
                     //Enviamos objeto cuentas request
                     request.setAttribute("cuentas", cu2);
 
-                   request.getRequestDispatcher("mostrar.jsp").forward(request, response);
+                    request.getRequestDispatcher("mostrar.jsp").forward(request, response);
 
                     break;
 

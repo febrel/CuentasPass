@@ -53,6 +53,26 @@ public class Consultas {
         return respuesta;
     }
 
+    public String retornaPass(int id) {
+        String respuesta = null;
+        String sql = "SELECT pass FROM cuentas WHERE id_cuentas = '" + id + "';";
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            // Recorre hasta que encuentre el valor si existe
+            while (rs.next()) {
+                respuesta = String.valueOf(rs.getString("pass"));
+            }
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
+        return respuesta;
+
+    }
+
     public Cuentas listarId(String usuario) {
         String respuesta = null;
         Cuentas c = new Cuentas();
@@ -66,7 +86,7 @@ public class Consultas {
                 c.setId_cuentas(rs.getString(1));
                 c.setNombre(rs.getString(2));
                 c.setUsuario(rs.getString(3));
-                 c.setPass(rs.getString(4));
+                c.setPass(rs.getString(4));
                 c.setArreglo(rs.getString(5));
 
             }
@@ -99,7 +119,7 @@ public class Consultas {
     }
 
     // Modificar
-    public int modificarCuentas(String nombre, String usuario, String pass, String arreglo, int id) {
+    public int modificarCuentasCompleto(String nombre, String usuario, String pass, String arreglo, int id) {
         int retorno = 0;
 
         String sql = ("UPDATE cuentas SET nombre=?, usuario=?, pass=?, arreglo=? WHERE id_cuentas =?");
@@ -121,6 +141,26 @@ public class Consultas {
         return retorno;
     }
 
+    public int modificarCuentas(String nombre, String usuario, int id) {
+        int retorno = 0;
+
+        String sql = ("UPDATE cuentas SET nombre=?, usuario=? WHERE id_cuentas =?");
+
+        try {
+
+            PreparedStatement pst = db.AbrirConexion().prepareStatement(sql);
+            pst.setString(1, nombre);
+            pst.setString(2, usuario);
+            pst.setInt(3, id);
+            retorno = pst.executeUpdate();
+            pst.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return retorno;
+    }
+
     // Eliminar
     public void eliminarCuenta(int id) {
         String sql = "DELETE FROM cuentas WHERE id_cuentas = ?";
@@ -129,7 +169,7 @@ public class Consultas {
             PreparedStatement pst = db.AbrirConexion().prepareStatement(sql);
             pst.setInt(1, id);
             pst.executeUpdate();
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
