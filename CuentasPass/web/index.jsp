@@ -19,6 +19,9 @@
 
         <!-- Nuestro css-->
         <link rel="stylesheet" type="text/css" href="css/index.css" th:href="@{css/index.css}">
+        
+        <!-- Favicon-->
+        <link rel="shortcut icon" type="image/x-icon" href="img/bloqueado.png" />
 
     </head>
     <body>

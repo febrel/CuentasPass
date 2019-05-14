@@ -32,6 +32,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/centrar.css">
+        
+        <!-- Favicon-->
+        <link rel="shortcut icon" type="image/x-icon" href="img/bloqueado.png" />
+        
         <title>Agregar</title>
     </head>
     <body>

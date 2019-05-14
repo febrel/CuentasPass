@@ -12,7 +12,11 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="css/mensaje.css">
-         <title>Mensaje Error</title>
+        
+        <!-- Favicon-->
+        <link rel="shortcut icon" type="image/x-icon" href="img/bloqueado.png" />
+        
+        <title>Mensaje Error</title>
     <body class="w3-container w3-auto">
 
         <h2>Error</h2>
