@@ -19,7 +19,7 @@
 
         <!-- Nuestro css-->
         <link rel="stylesheet" type="text/css" href="css/index.css" th:href="@{css/index.css}">
-        
+
         <!-- Favicon-->
         <link rel="shortcut icon" type="image/x-icon" href="img/bloqueado.png" />
 
@@ -33,12 +33,19 @@
                     </div>
                     <form class="col-12"  method="post" placeholder="Id" action="Ingresar">
                         <div class="form-group" id="user-group">
-                            <input type="text" class="form-control" placeholder="Usuario" name="username"/>
+                            <input type="text" class="form-control" placeholder="Usuario" name="username" autocomplete="off"/>
                         </div>
                         <div class="form-group" action="Ingresar" id="contrasena-group">
                             <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
                         </div>
                         <button type="submit" class="btn btn-primary" name="btnIniciar" ><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+
+
+                        <div class="col-12 forgot">
+                            <a   href="usuarios.jsp">Registrate</a>
+                        </div>
+
+
                     </form>
 
                     <%
@@ -56,7 +63,6 @@
                             if (ingreso == 1) {
                                 sesion.setAttribute("ingreso", ingreso); // Se necesita 2 parametros 
                                 sesion.setAttribute("usuario", request.getAttribute("usuario")); // Se necesita 2 parametros y recupero del servlet
-
                                 response.sendRedirect("cuentas.jsp");
                             }
 

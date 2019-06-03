@@ -76,6 +76,34 @@ public class Ejecuta extends HttpServlet {
                     request.getRequestDispatcher("editar.jsp").forward(request, response);
                     break;
 
+                case "Agregar":
+                    // Variables utitlizadas
+                    String cedulaUsu = request.getParameter("txtCedula");
+                    String nombresUsu = request.getParameter("txtNombre");
+                    String usuarioUsu = request.getParameter("txtUsuario");
+                    String contraseñaUsu = request.getParameter("txtPass");
+                    String correoUsu = request.getParameter("txtCorreo");
+
+                    // Se envia la contraseña para encriptar
+                    String passUsu = objAl.generaPass(contraseñaUsu);
+
+                    // Envio contraseña y genero codigo ASCII
+                    int contenedorUsu[] = objAl.transformaASCIINumero(contraseñaUsu);
+
+                    // Lleno un arreglo con mas valores 
+                    int contenedorRelleUsu[] = objAl.retornaArregloRelleno(contenedorUsu);
+
+                    // Convierto el Arreglo para subirlo
+                    String subirArregloUsu = objAl.ConvArregloCadena(contenedorRelleUsu);
+
+                    // Envia el sql
+                    objConsul.AgregarUsuario(cedulaUsu, nombresUsu, usuarioUsu, passUsu, subirArregloUsu, correoUsu);
+
+                    // Enviar siempre asi para cuando se refresque no se vuelva a enviar el formulario
+                    response.sendRedirect("index.jsp");
+
+                    break;
+
                 case "Actualizar":
 
                     // Variables utitlizadas
@@ -97,7 +125,6 @@ public class Ejecuta extends HttpServlet {
                     String subirArreglo2 = objAl.ConvArregloCadena(contenedorRelle2);
 
                     String retornoPass = objConsul.retornaPass(id2);
-                    
 
                     //Condicional para actualizar
                     if (retornoPass.equals(contraseña2)) {

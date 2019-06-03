@@ -12,15 +12,14 @@ public class Consultas {
     Conexion db = new Conexion();
 
     // Consultas
-    public int autenticar(String usuarioI, String passI) {
+    public int autenticar(String usuarioI) {
         PreparedStatement pre = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT * FROM usuarios WHERE username = ? and pass  = ? ";
+            String sql = "SELECT * FROM usuarios WHERE username = ? ";
             pre = db.getConnection().prepareStatement(sql);
 
             pre.setString(1, usuarioI);
-            pre.setString(2, passI);
             rs = pre.executeQuery();
 
             // Si se ejecuta retorna verdadero
@@ -32,6 +31,27 @@ public class Consultas {
             System.err.println(e.getMessage());
         }
         return 0;
+    }
+
+    //cambia
+    public String retornaArreglo(String usuario) {
+        String respuesta = null;
+        String sql = "SELECT arreglo FROM usuarios WHERE username = '" + usuario + "';";
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            // Recorre hasta que encuentre el valor si existe
+            while (rs.next()) {
+                respuesta = String.valueOf(rs.getString("arreglo"));
+            }
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
+        return respuesta;
+
     }
 
     public String retornarId_Usuario(String usuario) {
@@ -111,6 +131,26 @@ public class Consultas {
             ps.setString(3, passI);
             ps.setString(4, arregloI);
             ps.setInt(5, clienteI);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void AgregarUsuario(String cedulaI, String nombreI, String usuarioI, String passI, String arregloI, String correoI) {
+
+        String sql = "INSERT INTO usuarios (id_usuario, cedula, nombres, username, pass, arreglo, correo) VALUES( default,? ,? ,? ,? ,? ,?)";
+
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(sql);
+
+            ps.setString(1, cedulaI);
+            ps.setString(2, nombreI);
+            ps.setString(3, usuarioI);
+            ps.setString(4, passI);
+            ps.setString(5, arregloI);
+            ps.setString(6, correoI);
             ps.executeUpdate();
 
         } catch (Exception e) {

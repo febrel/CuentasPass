@@ -1,6 +1,7 @@
 package servlets;
 
 import clases.Consultas;
+import clases.Cuentas;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -19,54 +20,74 @@ public class Ingresar extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        // Objeto sql
-        Consultas objConsultas = new Consultas();
+        try {
 
-        // Con esto se encamina las respuestas al servlet
-        RequestDispatcher rd = null;
+            // Objeto sql
+            Consultas objConsultas = new Consultas();
+            Cuentas objCuentas = new Cuentas();
 
-        // Variables
-        String usuario;
-        String pass;
-        int ingreso;
+            // Con esto se encamina las respuestas al servlet
+            RequestDispatcher rd = null;
 
-        // Si el boton hace una accion
-        if (request.getParameter("btnIniciar") != null) {
-            usuario = request.getParameter("username");
-            pass = request.getParameter("password");
+            // Variables
+            String usuario;
+            String pass;
+            int ingreso = 0;
+            boolean verdad = false;
 
-            // Uso el metodo de consultas para acceder
-            ingreso = objConsultas.autenticar(usuario, pass);
+            // Si el boton hace una accion
+            if (request.getParameter("btnIniciar") != null) {
+                usuario = request.getParameter("username");
+                pass = request.getParameter("password");
 
-            // Para enviar parametros desde el servlet
-            request.setAttribute("ingreso", ingreso);
-            request.setAttribute("usuario", usuario);
+                // Uso el metodo de consultas para acceder
+                String arreglo = objConsultas.retornaArreglo(usuario);
 
-            // Se va comunicar con el index
-            rd = request.getRequestDispatcher("index.jsp");
+                //Verifico primero la contraseña
+                objCuentas.setArreglo(arreglo);
+                String contraseñaGuardada = objCuentas.getArreglo();
+                System.out.println(contraseñaGuardada);
 
-        }// Fin del if
+                int resultado = objConsultas.autenticar(usuario);
 
-        // Va encaminar respuestas y solicitudes con el index.jsp
-        rd.forward(request, response);
+                if (contraseñaGuardada.equals(pass)) {
+                    verdad = true;
+                }
+
+                //Si todo esta correcto ingreso se valida
+                if ((resultado == 1) && (verdad == true)) {
+                    ingreso = 1;
+
+                    // Para enviar parametros desde el servlet
+                    request.setAttribute("ingreso", ingreso);
+                    request.setAttribute("usuario", usuario);
+                    rd = request.getRequestDispatcher("index.jsp");
+                }
+
+            }// Fin del if
+
+            // Va encaminar respuestas y solicitudes con el index.jsp
+            rd.forward(request, response);
+
+        } catch (Exception e) {
+
+            response.sendRedirect("index.jsp");
+        }
 
     }
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-   
     @Override
     public String getServletInfo() {
         return "Short description";
