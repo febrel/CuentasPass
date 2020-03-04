@@ -80,7 +80,7 @@
                             <thead>
                                 <tr>
 
-                                    <th>ID</th>
+                                 
                                     <th>Nombre</th>
                                     <th>Usuario</th>
                                     <th>Contraseña Temporal</th>
@@ -101,7 +101,7 @@
                                     if (id != null) {
 
                                         // String sql = "SELECT cu.id_cuentas, cu.nombre, cu.usuario, cu.pass  FROM cuentas cu , usuarios usu where cu.id_usuario_fk = usu.id_usuario and usu.id_usuario = " + id + ";";
-                                        String sql = "SELECT * FROM cuentas cu , usuarios usu where cu.id_usuario_fk = usu.id_usuario and usu.id_usuario = " + id + ";";
+                                        String sql = "SELECT * FROM cuentas cu , usuarios usu WHERE cu.id_usuario_fk = usu.id_usuario and usu.id_usuario = " + id + " ORDER BY cu.nombre ASC;";
                                         PreparedStatement ps = cone.getConnection().prepareStatement(sql);
                                         rs = ps.executeQuery();
 
@@ -109,7 +109,7 @@
 
                                 %>   
                                 <tr>
-                                    <td ><%=rs.getString("id_cuentas")%></td>
+                                    
                                     <td ><%=rs.getString("nombre")%></td>
                                     <td ><%=rs.getString("usuario")%></td>
                                     <td ><%=rs.getString("pass")%></td>
