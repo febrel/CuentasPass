@@ -3,7 +3,9 @@ package servlets;
 import clases.Algoritmo;
 import clases.Consultas;
 import clases.Cuentas;
+import java.util.List;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -149,6 +151,13 @@ public class Ejecuta extends HttpServlet {
 
                     objConsul.eliminarCuenta(ide2);
                     request.getRequestDispatcher("cuentas.jsp").forward(request, response);
+
+                    break;
+
+                case "Buscar":
+                    String dato = request.getParameter("txtBuscar");
+                    java.util.List<Cuentas> lista = objConsul.buscar(dato);
+                    response.sendRedirect("index.jsp");
 
                     break;
 

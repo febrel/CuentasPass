@@ -1,7 +1,9 @@
 package clases;
 
+import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -214,6 +216,32 @@ public class Consultas {
             System.out.println(e);
         }
 
+    }
+
+    public List buscar(String texto) {
+        List<Cuentas> lista = new ArrayList<>();
+
+        Cuentas c = new Cuentas();
+
+        String sql = "SELECT * FROM cuentas WHERE nombre like'%" + texto + "%'";
+
+        try {
+            PreparedStatement ps = db.getConnection().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                c.setId_cuentas(rs.getString(1));
+                c.setNombre(rs.getString(2));
+                c.setUsuario(rs.getString(3));
+                c.setPass(rs.getString(4));
+                c.setArreglo(rs.getString(5));
+
+                lista.add(c);
+            }
+
+        } catch (Exception e) {
+        }
+        return lista;
     }
 
 }

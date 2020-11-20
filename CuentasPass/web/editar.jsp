@@ -66,7 +66,7 @@
                             <input class="form-control" type="text" name="txtUsuario" placeholder="Usuario" autocomplete="off" value="${cuentas.getUsuario()}"> <br>
                          
                             <label for="exampleInputEmail1" class="float-left">Contraseña</label>
-                            <input class="form-control" type="text" name="txtPass" placeholder="Contraseña" autocomplete="off" value="${cuentas.getPass()}"> <br>
+                            <input class="form-control" type="text" name="txtPass" placeholder="Contraseña" autocomplete="off" value="${cuentas.getArreglo()}"> <br>
                             
                             <input   class="btn btn-primary" type="submit"  name="realiza" value="Actualizar">  <br>
                         </div>

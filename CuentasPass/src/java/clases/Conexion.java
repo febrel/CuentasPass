@@ -15,7 +15,7 @@ public class Conexion {
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         String driver = "com.mysql.jdbc.Driver";/*Driver para conectar "Driver de clase"*/
         String user = "root";
-        String password = "";
+        String password = "12345";
         String url = "jdbc:mysql://localhost:3306/crud?autoReconnect=true&useSSL=false";/*URL para conectar "DATABASE URL"*/
         Class.forName(driver);//Diver jdbc para trabajr con access
         con = DriverManager.getConnection(url, user, password);

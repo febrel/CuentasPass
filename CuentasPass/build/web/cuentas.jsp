@@ -37,13 +37,17 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/centrar.css">
-        
+       
+
         <!-- Favicon-->
         <link rel="shortcut icon" type="image/x-icon" href="img/bloqueado.png" />
         
+
         <title>Cuentas</title>
     </head>
-    <body>
+    <body >
+        
+       
 
 
         <%            Conexion cone = new Conexion();
@@ -63,6 +67,8 @@
             <div class="card text-light bg-dark">
 
                 <div class="padding  p-3"> 
+
+
                     <form action="Ejecuta"  method="post" >
 
                         <%
@@ -76,11 +82,12 @@
                     </form>
 
                     <div class="card-body">
+
                         <table class="table table-hover">
                             <thead>
                                 <tr>
 
-                                 
+
                                     <th>Nombre</th>
                                     <th>Usuario</th>
                                     <th>Contraseña Temporal</th>
@@ -100,7 +107,6 @@
 
                                     if (id != null) {
 
-                                        // String sql = "SELECT cu.id_cuentas, cu.nombre, cu.usuario, cu.pass  FROM cuentas cu , usuarios usu where cu.id_usuario_fk = usu.id_usuario and usu.id_usuario = " + id + ";";
                                         String sql = "SELECT * FROM cuentas cu , usuarios usu WHERE cu.id_usuario_fk = usu.id_usuario and usu.id_usuario = " + id + " ORDER BY cu.nombre ASC;";
                                         PreparedStatement ps = cone.getConnection().prepareStatement(sql);
                                         rs = ps.executeQuery();
@@ -109,7 +115,7 @@
 
                                 %>   
                                 <tr>
-                                    
+
                                     <td ><%=rs.getString("nombre")%></td>
                                     <td ><%=rs.getString("usuario")%></td>
                                     <td ><%=rs.getString("pass")%></td>
@@ -119,19 +125,21 @@
                                             <input type="hidden" name ="id" value="<%=rs.getString("id_cuentas")%>">
 
                                             <input class="btn btn-warning" type="submit" name ="realiza" value="Editar">
-                                            <input class="btn btn-danger" type="submit" name ="realiza"  value="Eliminar">
-                                            <input class="btn text-dark" type="submit" name ="realiza"  value="Ver">
-                                            
+                                            <input onclick="return confirm('Está Seguro de Eliminar?')" class="btn btn-danger btn-delete" type="submit" name ="realiza"  value="Eliminar">
+                                            <input  class="btn text-dark" type="submit" name ="realiza"  value="Ver">
+
                                         </form>
                                     </td>
                                 </tr>
                                 <%
                                         }
                                     }
+
                                 %>
 
                             </tbody>           
                         </table>
+                                
 
                     </div>
                 </div>
@@ -141,6 +149,8 @@
                 <a class="btn  btn-danger float-left" href="index.jsp?cerrar=true">Cerrar</a>
                 <a class="btn btn-primary float-right">Exportar</a>
             </div>
-
+                                
+                                
+    
     </body>
 </html>
