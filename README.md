@@ -1,6 +1,6 @@
 # CuentasPass
 
-CuentaPass Creada con Java Servlets 
+CuentaPass Creada con Java Servlets y Bootstrap
 * Función Algoritmo de Encriptación
 * Utilización de MVC
 * Base datos MySQL
