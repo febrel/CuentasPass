@@ -1,6 +1,9 @@
 # CuentasPass
 
-CuentaPass Creada con Java Servlets con Algoritmo de Encriptación
+CuentaPass Creada con Java Servlets 
+* Función Algoritmo de Encriptación
+* Utilización de MVC
+* Base datos MySQL
 
 ## Pantalla Login
 ![image](https://user-images.githubusercontent.com/23177282/113450515-b3d73d00-93c5-11eb-9d9d-ed9c0e490096.png)
