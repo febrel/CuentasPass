@@ -38,11 +38,63 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/centrar.css">
         
+        
+        <!-- JS-->
+        <script src="js/jquery_3.2.1min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        
         <!-- Favicon-->
         <link rel="shortcut icon" type="image/x-icon" href="img/bloqueado.png" />
         <title>Mostrar</title>
     </head>
     <body>
+        
+        
+                
+               <style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+
+
+  .close-msg{
+    font-size: 25px;
+    color: #fff;
+    margin-right: 10px;
+  }
+
+  .close-msg:hover{
+    font-size: 25px;
+    filter: saturate(180%);
+    color: #d1545a;
+    margin-right: 10px;
+  }
+
+</style>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+        <img class="navbar-brand" width="40" height="40" src="img/logo.svg" alt="">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            
+          </ul>
+          <div class="form-inline my-2 my-lg-0 mr-sm-1 hello-msg"> 
+               Hola,&nbsp; 
+              <span class="mr-sm-2 hello-msg text-primary font-italic"> <%= sesion.getAttribute("usuario")%></span>
+              <span class="my-2 my-sm-0" ><a class="close-msg"  href="index.jsp?cerrar=true"><img class="navbar-brand" width="40" height="40" src="img/close.svg" alt=""></a></span>
+              
+             
+          </div>
+        </div>
+      </nav>
+
 
 
         <%            Conexion cone = new Conexion();
@@ -54,18 +106,20 @@
 
         %>
 
-        <div class=" text-center text-light font-italic">
-            <h3>Contraseña Desencriptada</h3>
-        </div>
+  
 
-        <div class="container mt-1  "> 
-            <div class="card text-light bg-dark">
+        <div class="container mt-4""> 
+            <div class="card text-dark ">
 
-                <div class="padding  p-3"> 
+                <div class="padding  p-3">
+                   <div class=" text-center text-dark font-italic">
+                        <h3>Contraseña Desencriptada</h3>
+                    </div>
 
 
                     <div class="card-body">
-                        <table class="table table-hover">
+                        <div class="table-responsive">
+                        <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
 
@@ -82,7 +136,8 @@
                                     <td >${cuentas.getId_cuentas()}</td>
                                     <td >${cuentas.getNombre()}</td>
                                     <td >${cuentas.getUsuario()}</td>
-                                    <td >${cuentas.getArreglo()}</td>
+                                    <td class="bg-success text-white" data-toggle="tooltip" data-placement="left"
+              title="Bad weather condition">${cuentas.getArreglo()}</td>
 
                                 </tr>
 
@@ -90,6 +145,7 @@
                         </table>
 
                     </div>
+                 </div>
                 </div>
             </div>
     </body>

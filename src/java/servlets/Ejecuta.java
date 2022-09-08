@@ -155,9 +155,16 @@ public class Ejecuta extends HttpServlet {
                     break;
 
                 case "Buscar":
-                    String dato = request.getParameter("txtBuscar");
-                    java.util.List<Cuentas> lista = objConsul.buscar(dato);
-                    response.sendRedirect("index.jsp");
+                    
+                    // Captura el buscar
+                    String buscar = request.getParameter("txtBuscar");
+                   
+                    
+                     objConsul.devuelveBusqueda(buscar);
+                     
+                     //Enviamos objeto cuentas request
+               
+                     response.sendRedirect("cuentas.jsp");
 
                     break;
 

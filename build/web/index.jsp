@@ -38,11 +38,13 @@
                         <div class="form-group" action="Ingresar" id="contrasena-group">
                             <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="btnIniciar" ><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                        
+                        
+                        <button type="submit" class="form-control btn btn-primary" name="btnIniciar" ><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                      
 
-
-                        <div class="col-12 forgot">
-                            <a   href="usuarios.jsp">Registrate</a>
+                        <div class="col forgot ">
+                           <a   href="usuarios.jsp">Registrate</a>
                         </div>
 
 

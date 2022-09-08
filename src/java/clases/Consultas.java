@@ -74,6 +74,10 @@ public class Consultas {
 
         return respuesta;
     }
+    
+    
+    
+    
 
     public String retornaPass(int id) {
         String respuesta = null;
@@ -203,6 +207,14 @@ public class Consultas {
         return retorno;
     }
 
+    
+    public String devuelveBusqueda(String cadena){
+        
+        
+        return cadena;
+        
+    }
+    
     // Eliminar
     public void eliminarCuenta(int id) {
         String sql = "DELETE FROM cuentas WHERE id_cuentas = ?";

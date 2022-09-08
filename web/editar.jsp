@@ -34,30 +34,80 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/centrar.css">
         
+        <!-- JS-->
+        <script src="js/jquery_3.2.1min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        
         <!-- Favicon-->
         <link rel="shortcut icon" type="image/x-icon" href="img/bloqueado.png" />
         
         <title>Editar</title>
     </head>
     <body>
+        
+        
+  <style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+
+
+  .close-msg{
+    font-size: 25px;
+    color: #fff;
+    margin-right: 10px;
+  }
+
+  .close-msg:hover{
+    font-size: 25px;
+    filter: saturate(180%);
+    color: #d1545a;
+    margin-right: 10px;
+  }
+
+</style>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+        <img class="navbar-brand" width="40" height="40" src="img/logo.svg" alt="">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            
+          </ul>
+          <div class="form-inline my-2 my-lg-0 mr-sm-1 hello-msg"> 
+               Hola,&nbsp; 
+              <span class="mr-sm-2 hello-msg text-primary font-italic"> <%= sesion.getAttribute("usuario")%></span>
+              <span class="my-2 my-sm-0" ><a class="close-msg"  href="index.jsp?cerrar=true"><img class="navbar-brand" width="40" height="40" src="img/close.svg" alt=""></a></span>
+              
+             
+          </div>
+        </div>
+      </nav>
 
 
 
-        <div class="modal-dialog text-center">
 
-            <div class="abs-center" >
+           
+        <div class="mx-auto" style="width: 40%;">
+            
+            <div class="col-auto text-center mt-4" >
+                <div class="modal-content text-dark">
 
-                <div class="modal-content text-light bg-dark">
-
-                    <div class="text-center text-light font-italic">
+                    <div class="text-center text-dark font-italic">
                         <h3>Editar Cuenta</h3>
                     </div>
 
                     <form  method="post" action="Ejecuta">
                         
-                        <div class="padding p-3">
-                            <label for="exampleInputEmail1" class="float-left">Id</label>
-                            <input class="form-control "  type="text" name="txtId" placeholder="Id" autocomplete="off" value="${cuentas.getId_cuentas()}" readonly="readonly"> <br>
+                        <div class="form-control padding p-3">
+                           
+                            <input class="form-control "  type="hidden" name="txtId" placeholder="Id" autocomplete="off" value="${cuentas.getId_cuentas()}" readonly="readonly"> <br>
                        
                             <label for="exampleInputEmail1" class="float-left">Cuenta</label>
                             <input class="form-control" type="text" name="txtNombre" placeholder="Nombre" autocomplete="off" value="${cuentas.getNombre()}"> <br>
@@ -68,8 +118,9 @@
                             <label for="exampleInputEmail1" class="float-left">Contraseña</label>
                             <input class="form-control" type="text" name="txtPass" placeholder="Contraseña" autocomplete="off" value="${cuentas.getArreglo()}"> <br>
                             
-                            <input   class="btn btn-primary" type="submit"  name="realiza" value="Actualizar">  <br>
-                        </div>
+                            
+                            <input   class="form-control btn btn-primary" type="submit"  name="realiza" value="Actualizar">  <br>
+                         
                             
                     </form>
                 </div>

@@ -24,9 +24,9 @@
 
         <div class="modal-dialog text-center">
             <div class="abs-center" >
-                <div class="modal-content text-light bg-dark">
+                <div class="modal-content text-dark ">
 
-                    <div class="text-center text-light font-italic " >
+                    <div class="text-center text-dark font-italic " >
                         <h3>Agregar Nuevo Usuario</h3>
 
                     </div>
@@ -49,7 +49,7 @@
 
                                 <input class="form-control" type="mail" name="txtCorreo" placeholder="Correo" autocomplete="off"> <br>
 
-                                <input class="btn btn-primary" type="submit"  name="realiza" value="Agregar"> <br>                         
+                                <input class="form-control btn btn-success" type="submit"  name="realiza" value="Agregar"> <br>                         
 
                             </div>
                         </form>
