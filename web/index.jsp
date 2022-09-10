@@ -40,11 +40,11 @@
                         </div>
                         
                         
-                        <button type="submit" class="form-control btn btn-primary" name="btnIniciar" ><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                        <button type="submit" class="form-control btn btn-success" name="btnIniciar" ><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
                       
 
                         <div class="col forgot ">
-                           <a   href="usuarios.jsp">Registrate</a>
+                            <a class="text-dark"   href="usuarios.jsp">Registrate</a>
                         </div>
 
 

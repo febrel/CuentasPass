@@ -49,7 +49,7 @@
 
                                 <input class="form-control" type="mail" name="txtCorreo" placeholder="Correo" autocomplete="off"> <br>
 
-                                <input class="form-control btn btn-success" type="submit"  name="realiza" value="Agregar"> <br>                         
+                                <input class="form-control btn btn-primary" type="submit"  name="realiza" value="Agregar"> <br>                         
 
                             </div>
                         </form>
