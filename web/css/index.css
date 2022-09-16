@@ -1,11 +1,10 @@
 body{
     
     /* Para todo el  background */
-    background-color: #2E2E2E;
-    opacity: 1;
-    background-image: radial-gradient(#b5b6cd 0.75px, transparent 0.75px), radial-gradient(#b5b6cd 0.75px, #e5e5f7 0.75px);
-    background-size: 30px 30px;
-    background-position: 0 0, 15px 15px;
+    /*background: url(../img/fondo.jpg) no-repeat center center fixed;
+    background-size: cover; */
+    
+     background-color: #F5F5F5
   
 }
 
